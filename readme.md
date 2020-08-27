@@ -52,7 +52,7 @@
 ```
 
 ### Delete a review comment
-  * DELETE `/api/reviews`
+  * POST `/api/reviews`
 
 **Request Body**: Expects JSON with the following keys.
 
