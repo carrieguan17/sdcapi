@@ -1,6 +1,6 @@
 ## Server API
 
-### Get all reviews for a specific room listing
+### Get all reviews for a specific property listing
   * GET `/api/reviews`
 
 **Success Status Code:** `200`
@@ -9,22 +9,28 @@
 
 ```json
     {
-      "reviewId": "Number",
-      "roomName": "String",
-      "userName": "String",
-      "profileImg": "String url",
-      "reviewDate": "month year",
-      "reviewComment": "String",
-      "response": {
+      "propertyId": "Number",
+      "propertyName": "String",
+      "propertyOwner": "String",
+      "rating": "Number",
+      "numOfReviews": "Number",
+      "reviews": [{
+        "reviewId": "Number",
         "userName": "String",
-        "resDate": "month year",
-        "resComment": "String"
-      }
+        "profileImg": "String",
+        "reviewDate": "Date",
+        "reviewContent": "String",
+        "response": {
+          "propertyOwnerImg": "String",
+          "resDate": "Date",
+          "resContent": "String"
+        }
+      }]
     }
 ```
 
-### Report an issue with a user
-  * POST `/api/report`
+### Post a review
+  * POST `/api/reviews`
 
 **Success Status Code:** `201`
 
@@ -32,13 +38,16 @@
 
 ```json
     {
-      "userName": "String",
-      "issueId": "Issue number"
+      "propertyId": "String",
+      "userId": "String",
+      "reviewId": "Number",
+      "reviewDate": "month year",
+      "reviewContent": "String",
     }
 ```
 
 ### Update a review comment
-  * PATCH `/api/reviews`
+  * PUT `/api/reviews`
 
 **Success Status Code:** `204`
 
@@ -47,19 +56,18 @@
 ```json
     {
       "reviewId": "Number",
-      "reviewComment": "String"
+      "reviewContent": "String"
     }
 ```
 
 ### Delete a review comment
-  * POST `/api/reviews`
+  * POST `/api/review`
 
 **Request Body**: Expects JSON with the following keys.
 
 ```json
     {
       "reviewId": "Number",
-      "reviewComment": "String"
     }
 ```
 
