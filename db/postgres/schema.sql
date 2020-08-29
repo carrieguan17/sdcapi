@@ -2,8 +2,8 @@ CREATE TABLE properties(
    property_id INT GENERATED ALWAYS AS IDENTITY,
    property_name VARCHAR(255) NOT NULL,
    property_owner VARCHAR(255) NOT NULL,
-   num_of_review INT,
    rating NUMERIC,
+   num_of_review INT,
    PRIMARY KEY(property_id)
 );
 
@@ -23,12 +23,12 @@ CREATE TABLE reviews(
    PRIMARY KEY(review_id)
 );
 
-CREATE TABLE responses(
-   response_id INT GENERATED ALWAYS AS IDENTITY,
-   review_id INT REFERENCES reviews (id) NOT NULL,
-   response_date Date NOT NULL,
-   response_comment VARCHAR(500),
-   PRIMARY KEY(response_id)
-);
+-- CREATE TABLE responses(
+--    response_id INT GENERATED ALWAYS AS IDENTITY,
+--    review_id INT REFERENCES reviews (id) NOT NULL,
+--    response_date Date NOT NULL,
+--    response_comment VARCHAR(500),
+--    PRIMARY KEY(response_id)
+-- );
 
 

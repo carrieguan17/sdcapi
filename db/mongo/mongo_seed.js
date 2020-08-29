@@ -3,6 +3,7 @@ const fs = require('fs');
 const faker = require('faker');
 const mongoose = require('mongoose');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const bodyParser = require('body-parser');
 
 // create db connection
   // // below is to establishe DB:
@@ -72,7 +73,7 @@ const seedPropertyData = (num) => {
       propertyOwnerImg: faker.image.imageUrl(),
       rating: ((Math.random() * 5) + 3).toFixed(2),
       numOfReviews: numOfReviews,
-      reviews: reviewsArray
+      reviews: JSON.stringify(reviewsArray)
     };
     propertyArray.push(property);
   //   return new Promise((resolve,reject) => {
@@ -87,6 +88,8 @@ const seedPropertyData = (num) => {
   }
   return propertyArray;
 }
+
+var propertyArray = seedPropertyData(2);
 
 // below is to seed 2 records
 const csvWriterUser = createCsvWriter({
@@ -114,11 +117,12 @@ const csvWriterProperty = createCsvWriter({
       {id: 'reviews', title: 'reviews'}
   ]
 });
-var propertyArray = seedPropertyData(2);
 csvWriterProperty.writeRecords(propertyArray)       // returns a promise
   .then(() => {console.log('success')})
   .catch(() => {console.log('error', err)})
-// mongoose.disconnect();
+
+mongoose.disconnect();
+
 // below is to seed 10M records
 
 // write down the speed
