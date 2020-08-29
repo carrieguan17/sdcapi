@@ -1,0 +1,31 @@
+{
+  "name": "sdcapi",
+  "version": "1.0.0",
+  "description": "### Get all reviews for a specific property listing   * GET `/api/reviews`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrieguan17/sdcapi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carrieguan17/sdcapi/issues"
+  },
+  "homepage": "https://github.com/carrieguan17/sdcapi#readme",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "fs": "0.0.1-security",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.10.2",
+    "node": "^14.8.0",
+    "nodemon": "^2.0.4",
+    "postgres": "^1.0.2"
+  }
+}

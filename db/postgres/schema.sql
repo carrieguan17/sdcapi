@@ -7,7 +7,6 @@ CREATE TABLE properties(
    PRIMARY KEY(property_id)
 );
 
--- // One to many relationship
 CREATE TABLE users(
    user_id INT GENERATED ALWAYS AS IDENTITY,
    user_name VARCHAR(255) NOT NULL,
@@ -33,11 +32,3 @@ CREATE TABLE responses(
 );
 
 
--- x diagram, visual representation how data interact
-
--- x query to get all the reivews of a user
--- select * from reviews where reviews.user_id = users.user_id
-
--- x remove issues
-
--- wip primary item for 10M records (10M users with 50 reviews on avg)
